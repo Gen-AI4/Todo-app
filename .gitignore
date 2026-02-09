@@ -1,0 +1,35 @@
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+.env.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Node modules
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+nul
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+.next/
+
+# Logs
+*.log
