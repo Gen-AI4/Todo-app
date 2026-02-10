@@ -1,55 +1,59 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A → 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: All sections
+Removed sections: None
+Templates requiring updates:
+- ✅ .specify/templates/plan-template.md
+- ✅ .specify/templates/spec-template.md
+- ✅ .specify/templates/tasks-template.md
+- ✅ .specify/templates/commands/*.md
+Follow-up TODOs: None
+-->
+
+# Multi-Phase AI-Native Todo Application Evolution Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Iterative Complexity
+Build foundational logic first, then layer web, AI, and cloud abstractions. All development follows a phased approach starting with basic functionality before adding advanced features.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Strict Stack Adherence
+Use only the specified technologies for the active phase. Each phase has defined technology stacks that must be followed without deviation to maintain consistency and predictability.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Spec-Driven Development
+All code must be generated based on clear specifications. No implementation should proceed without a well-defined specification document that guides the development process.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Cloud-Native Readiness
+Architecture must support containerization and microservices from Phase II onwards. All design decisions must consider future scalability and cloud deployment requirements.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+## Additional Standards and Constraints
 
-### [PRINCIPLE_6_NAME]
+### Code Quality Standards
+Maintain high code quality standards throughout the project: PEP 8 for Python, ESLint/Prettier for Next.js. All code must pass linting and formatting checks before merging.
 
+### Architecture Requirements
+Enforce separation of concerns across Frontend, Backend, AI Services, and Infrastructure layers. Each component must have clearly defined responsibilities and interfaces.
 
-[PRINCIPLE__DESCRIPTION]
+### Documentation Requirements
+All modules must include comprehensive docstrings and usage examples. Documentation is considered part of the deliverable and must be maintained alongside code changes.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Infrastructure as Code
+Use declarative configurations for Kubernetes and Helm. All infrastructure changes must be tracked through version control and deployed through automated pipelines.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Phase-Specific Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Phase I (In-Memory Console)
+Use Python, Claude Code, and Spec-Kit Plus ONLY. No external databases allowed. This phase focuses on core business logic implementation with in-memory storage.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Phase II (Full-Stack Web)
+Implement with Next.js (Frontend), FastAPI (Backend), SQLModel (ORM), and Neon DB (Persistence). Maintain strict separation between frontend and backend services.
+
+### Phase III (AI Agent)
+Integration with OpenAI services for intelligent features. All AI interactions must follow established patterns and maintain data privacy standards.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution establishes the fundamental rules and guidelines that govern all development activities. All team members must adhere to these principles, and any deviations require formal amendment procedures. Code reviews must verify compliance with all constitutional principles, and automated checks should validate adherence to standards.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-02-05 | **Last Amended**: 2026-02-05
