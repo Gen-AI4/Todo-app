@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import create_db_and_tables
 from app.routers import tasks
 from app.routers import auth as auth_router
+from app.routers import chat as chat_router
 
 # Import auth module to validate BETTER_AUTH_SECRET on startup
 # This will raise ValueError if secret is missing or too short
@@ -52,6 +53,7 @@ app.add_middleware(
 # Include routers
 app.include_router(auth_router.router)  # Auth routes at /api/auth
 app.include_router(tasks.router, prefix="/api")  # Task routes at /api/tasks
+app.include_router(chat_router.router, prefix="/api")  # Chat routes at /api/chat
 
 
 

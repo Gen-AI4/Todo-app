@@ -152,3 +152,37 @@ class TaskResponse(TaskBase):
         """Pydantic config for ORM mode."""
 
         from_attributes = True
+
+
+# =============================================================================
+# Conversation Models (Chat Persistence)
+# =============================================================================
+
+
+class Conversation(SQLModel, table=True):
+    """Conversation database model for chat history."""
+
+    id: UUID = Field(default_factory=uuid4, primary_key=True, description="Unique conversation identifier")
+    user_id: str = Field(index=True, description="Owner's user identifier")
+    title: Optional[str] = Field(default=None, max_length=200, description="Conversation title")
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc),
+        description="Conversation creation timestamp (UTC)",
+    )
+    updated_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc),
+        description="Last modification timestamp (UTC)",
+    )
+
+
+class Message(SQLModel, table=True):
+    """Message database model for conversation messages."""
+
+    id: UUID = Field(default_factory=uuid4, primary_key=True, description="Unique message identifier")
+    conversation_id: UUID = Field(foreign_key="conversation.id", index=True, description="Parent conversation")
+    role: str = Field(description="Message role: user, assistant, or tool")
+    content: str = Field(description="Message content")
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc),
+        description="Message creation timestamp (UTC)",
+    )
