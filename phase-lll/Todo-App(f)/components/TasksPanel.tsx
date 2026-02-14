@@ -15,9 +15,12 @@ interface TasksPanelProps {
 type ViewMode = "list" | "grid";
 
 function timeAgo(dateStr: string): string {
+  // Ensure the date is treated as UTC by appending 'Z' if not present
+  const utcDateStr = dateStr.endsWith('Z') ? dateStr : dateStr + 'Z';
   const seconds = Math.floor(
-    (Date.now() - new Date(dateStr).getTime()) / 1000
+    (Date.now() - new Date(utcDateStr).getTime()) / 1000
   );
+  if (seconds < 0) return "just now"; // Handle slight clock differences
   if (seconds < 60) return "just now";
   const minutes = Math.floor(seconds / 60);
   if (minutes < 60) return `${minutes}m ago`;
