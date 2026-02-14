@@ -2,9 +2,25 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir \
+    fastapi>=0.109.0 \
+    sqlmodel>=0.0.14 \
+    "uvicorn[standard]>=0.27.0" \
+    psycopg2-binary>=2.9.9 \
+    python-dotenv>=1.0.0 \
+    pyjwt>=2.8.0 \
+    openai>=1.0.0 \
+    mcp>=1.0.0 \
+    httpx>=0.25.0 \
+    pydantic>=2.0.0 \
+    jsonschema>=4.0.0 \
+    sse-starlette>=1.6.0 && \
+    pip list
 
+# Copy application code
 COPY . .
 
 EXPOSE 7860

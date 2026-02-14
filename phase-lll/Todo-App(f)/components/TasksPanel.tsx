@@ -23,11 +23,11 @@ function timeAgo(dateStr: string): string {
   if (seconds < 0) return "just now"; // Handle slight clock differences
   if (seconds < 60) return "just now";
   const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
+  if (minutes < 60) return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
+  if (hours < 24) return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
   const days = Math.floor(hours / 24);
-  return `${days}d ago`;
+  return `${days} day${days !== 1 ? 's' : ''} ago`;
 }
 
 export default function TasksPanel({ token, refreshKey }: TasksPanelProps) {
